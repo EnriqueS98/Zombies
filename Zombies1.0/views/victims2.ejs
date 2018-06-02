@@ -1,0 +1,46 @@
+<% include header3%>
+<div class="slide-1">
+<div class="overlay"></div>
+<div class="hero">
+<hgroup>
+    <h1>YOU ARE THE NEXT!</h1>        
+</hgroup>
+<a href="/" button class="btn btn-hero btn-lg" role="button">Home</button>
+<a href="/weapons" button class="btn btn-hero btn-lg" role="button">Weapons</button>
+<a href="/victims"button class="btn btn-hero btn-lg" role="button">Victims</button>
+<a href="/register" button class="btn btn-hero btn-lg" role="button">Register</button>
+</a>
+
+
+</div>
+
+<% if(entries.length){ %>
+    <h1 style="margin-top:3rem; text-align:center;">Lista de victimas</h1>
+    <% if(entries.length==1){ %>
+    <h4>Hay <%- entries.length %> victima registrada</h4>
+    <% }else if(entries.length>1){ %>
+        <h4>Hay <%- entries.length %> victimas registradas</h4>
+        <% } %>
+    <% entries.forEach((entry)=>{ %>
+        <div class="card" style="margin-top:1rem;">
+                <div class="card-body">
+                  <label for="nombre" class="font-weight-bold">Nombre: </label>
+                  <%- entry.nombre %>
+                  <br>
+                  <label for="direccion" class="font-weight-bold">Dirección: </label>
+                  <%- entry.direccion %>
+                  <br>
+                  <label for="tel" class="font-weight-bold">Teléfono: </label>
+                  <%- entry.tel %>
+                  <br>
+                  <label for="instagram" class="font-weight-bold">Instagram: </label>
+                  <%- entry.instagram %>
+                  
+                </div>
+            </div>
+    <% }) %>
+<% }else{ %>
+    <h1 style="margin-top:3rem; text-align:center;">Aun no hay ninguna victima registrada</h1>
+<% } %>
+
+<%include footer%>
